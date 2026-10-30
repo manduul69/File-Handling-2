@@ -41,10 +41,21 @@ print(filter_passed(source,destination,pass_mark))
 
 # Exercise 4
 def replace_word(filename, old_word, new_word):
-    # Write your code here
-    pass
+    file = open(filename, “r”)
+    text = file.read()
+    file.close()
+    text = text.replace(old_word, new_word)
+    file = open(filename, “w”)
+    file.write(text)
+    file.close()
 
 # Exercise 5
 def remove_line(filename, line_number):
-    # Write your code here
-    pass
+    file = open(filename, “r”)
+    lines = file.readlines()
+    file.close()
+    file = open(filename, “w”)
+    for i in range(len(lines)):
+        if i != line_number - 1:
+            file.write(lines[i])
+    file.close()
